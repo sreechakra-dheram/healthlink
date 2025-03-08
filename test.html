@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Health Monitor</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px; }
+        h1 { color: #333; }
+        #data-container { font-size: 1.5em; margin-top: 20px; }
+        .value { font-weight: bold; color: #007BFF; }
+        #status { margin-top: 20px; font-size: 1.2em; color: red; }
+        .reading-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 10px auto;
+            padding: 15px;
+            max-width: 400px;
+        }
+        .no-data {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>ESP32 Health Monitor</h1>
+    <div id="data-container">
+        <div class="reading-card">
+            <p>💓 Heart Rate: <span class="value" id="heartRate">Waiting...</span> bpm</p>
+        </div>
+        <div class="reading-card">
+            <p>🩸 SpO₂: <span class="value" id="spo2">Waiting...</span> %</p>
+        </div>
+        <div class="reading-card">
+            <p>🌡 Temperature: <span class="value" id="temperature">Waiting...</span> °C</p>
+        </div>
+    </div>
+    <div id="status">Status: Connecting...</div>
+
+    <script>
+        const ip = "ws://192.168.0.204:81"; // Replace with ESP32 IP address
+        const socket = new WebSocket(ip);
+
+        socket.onopen = function() {
+            document.getElementById('status').innerHTML = "Status: Connected";
+            document.getElementById('status').style.color = "green";
+        };
+
+        socket.onclose = function() {
+            document.getElementById('status').innerHTML = "Status: Disconnected";
+            document.getElementById('status').style.color = "red";
+        };
+
+        socket.onmessage = function(event) {
+            console.log("Received data:", event.data);  // Log the received data
+            
+            try {
+                // Parse JSON data from server
+                const data = JSON.parse(event.data);
+                
+                // Update the UI with the received values
+                if (data.HR !== undefined) {
+                    const hrElement = document.getElementById('heartRate');
+                    if (data.HR < 0) {
+                        hrElement.innerHTML = "No reading";
+                        hrElement.className = "no-data";
+                    } else {
+                        hrElement.innerHTML = data.HR;
+                        hrElement.className = "value";
+                    }
+                }
+                
+                if (data.SpO2 !== undefined) {
+                    const spo2Element = document.getElementById('spo2');
+                    if (data.SpO2 < 0) {
+                        spo2Element.innerHTML = "No reading";
+                        spo2Element.className = "no-data";
+                    } else {
+                        spo2Element.innerHTML = data.SpO2;
+                        spo2Element.className = "value";
+                    }
+                }
+                
+                if (data.Temp !== undefined) {
+                    document.getElementById('temperature').innerHTML = data.Temp.toFixed(1);
+                }
+            } catch (e) {
+                console.error("Error parsing data:", e);
+                console.error("Received data was:", event.data);
+            }
+        };
+
+        socket.onerror = function(error) {
+            document.getElementById('status').innerHTML = "Status: Error";
+            document.getElementById('status').style.color = "red";
+            console.error("WebSocket Error: ", error);
+        };
+    </script>
+</body>
+</html>

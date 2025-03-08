@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Information</title>
+<style>
+  *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(239, 234, 226, 0.87);
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hospital {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .hospital:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hospital h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .hospital p {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .ambulance-driver {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  
+  .ambulance-driver h3 {
+    margin-top: 0;
+    color: #555;
+  }
+  
+  .ambulance-driver p {
+    margin: 5px 0;
+    color: #777;
+  }
+  .navbar{
+    height: 40px;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.heading-nav{
+    font-family: cursive;
+    text-align: center;
+}
+.nav-barr{
+    height: 58px;
+    width: 100%;
+    background-color:#133869dd;
+    display: flex;
+    color: rgba(239, 234, 226, 0.87);
+}
+.home{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.home i{
+    font-size: 25px;
+
+}
+.home p{
+    font-family:cursive;
+    font-size: px;
+}
+.doctor-consultation{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.doctor-consultation i{
+    font-size: 25px;
+
+}
+.doctor-consultation p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.awareness{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.awareness i{
+    font-size: 25px;
+
+}
+.awareness p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.chat{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.chat i{
+    font-size: 25px;
+}
+.chat p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.ambulance{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.ambulance i{
+    font-size: 25px;
+}
+.ambulance p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.medical-record{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.medical-record i{
+    font-size: 25px;
+}
+.medical-record p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.accounts{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.accounts i{
+    font-size: 25px;
+}
+.accounts p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.nav-bar{
+    background-color: #024751;
+    color: antiquewhite;
+}
+body, header, main, footer {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styling footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .social-links li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .social-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+</style>
+</head>
+<body>
+  <header>
+    <div class="nav-bar" >
+        <h1 class="heading-nav">FITLIFE-FORGE</h1>
+    </div>
+    <div class="nav-barr">
+        <div class="home" onclick="window.location.href='http://127.0.0.1:5000/upload'">
+            <i class="fa-solid fa-house"></i>
+            <p>HOME</p>
+        </div>
+        <div class="doctor-consultation" onclick="window.location.href='doc2.html'">
+          <i class="fa-solid fa-user-doctor"></i>
+          <p>DOCTOR</p>
+      </div>
+      <div class="awareness" onclick="window.location.href='vid.html'">
+        <i class="fa-solid fa-video"></i>
+        <p>AWARENESS</p>
+    </div>
+        <div class="chat" onclick="window.location.href='chatbot.html'">
+            <i class="fa-solid fa-message"></i>
+            <p>CHATBOT</p>
+        </div>
+        <div class="ambulance" onclick="window.location.href='amb.html'">
+          <i class="fa-solid fa-truck-medical"></i>
+            <p>AMBULANCE</p>
+        </div>
+        <div class="medical-record" onclick="window.location.href='amb.html'">
+          <i class="fa-solid fa-hospital-user"></i>
+            <p>MEDICAL-RECORDS</p>
+        </div>
+        <div class="accounts" onclick="window.location.href='test.html'">
+          <i class="fa-solid fa-user"></i>
+            <p>ACCOUNTS</p>
+        </div>
+</header>
+<div class="container">
+  
+  <div class="hospital">
+    <h2>SAI SANJEEVANI HOSPITAL</h2>
+    <p>Address: 1-96, Suchitra, opposite to pista house, secunderabad, telangana</p>
+    <p>Phone: 040227986558</p>
+    
+    <div class="ambulance-driver">
+      <h3>Ambulance Driver Information</h3>
+      <p>Name: J Saidulu</p>
+      <p>License Number: ABC123</p>
+      <p>Contact: 9876543210</p>
+    </div>
+  </div>
+  
+  <div class="hospital">
+    <h2>SREE RAMA HOSPITAL</h2>
+    <p>Address: 1-96, keeseara villge, beside ORR exit 16, secunderabad, telangana</p>
+    <p>Phone:0402279856 </p>
+    
+    <div class="ambulance-driver">
+      <h3>Ambulance Driver Information</h3>
+      <p>Name: R Kiran</p>
+      <p>License Number: XYZ456</p>
+      <p>Contact: 9865741320</p>
+    </div>
+  </div>
+  
+</div>
+<footer>
+  <div class="footer-content">
+      <p>  FitLife Forge</p>
+      <ul class="social-links">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <!-- Add more social media links as needed -->
+      </ul>
+      <p>Contact Us: <a href="mailto:info@fitlifeforge.com">info@fitlifeforge.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

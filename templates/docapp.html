@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Booking</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<style>
+    /* Custom Styles */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 0;
+}
+
+.appointment-section {
+    padding: 50px 0;
+}
+
+.footer {
+    padding: 20px 0;
+}
+
+</style>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">DoctorApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <h1>Book Your Doctor's Appointment Online</h1>
+            <p>Convenient and hassle-free scheduling at your fingertips.</p>
+            <a href="#appointment" class="btn btn-primary">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Appointment Form Section -->
+    <section id="appointment" class="appointment-section">
+        <div class="container">
+            <h2 class="text-center">Schedule an Appointment</h2>
+            <form id="appointmentForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="patientName">Full Name</label>
+                        <input type="text" class="form-control" id="patientName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="patientEmail">Email</label>
+                        <input type="email" class="form-control" id="patientEmail" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="appointmentDate">Date</label>
+                        <input type="date" class="form-control" id="appointmentDate" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="appointmentTime">Time</label>
+                        <input type="time" class="form-control" id="appointmentTime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="doctorSelect">Select Doctor</label>
+                    <select id="doctorSelect" class="form-control" required>
+                        <option value="" disabled selected>Choose...</option>
+                        <option value="Dr. Smith">Dr. Smith</option>
+                        <option value="Dr. Johnson">Dr. Johnson</option>
+                        <option value="Dr. Williams">Dr. Williams</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light text-center">
+        <div class="container">
+            <p>&copy; 2025 DoctorApp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+</body>
+<script>
+    // scripts.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const appointmentForm = document.getElementById('appointmentForm');
+    const doctorSelect = document.getElementById('doctorSelect');
+    const appointmentDate = document.getElementById('appointmentDate');
+    const appointmentTime = document.getElementById('appointmentTime');
+    const appointmentsList = document.getElementById('appointmentsList');
+
+    // Sample data: doctor's availability
+    const doctorAvailability = {
+        'Dr. Smith': {
+            '2025-03-10': ['10:00', '11:00', '14:00'],
+            '2025-03-11': ['09:00', '13:00', '15:00']
+        },
+        'Dr. Johnson': {
+            '2025-03-10': ['09:00', '12:00', '16:00'],
+            '2025-03-12': ['10:00', '11:30', '14:30']
+        },
+        'Dr. Williams': {
+            '2025-03-11': ['08:00', '10:30', '13:30'],
+            '2025-03-13': ['09:00', '12:30', '15:30']
+        }
+    };
+
+    // Load existing appointments from localStorage
+    let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+    // Populate doctor select options
+    function populateDoctorOptions() {
+        for (let doctor in doctorAvailability) {
+            const option = document.createElement('option');
+            option.value = doctor;
+            option.textContent = doctor;
+            doctorSelect.appendChild(option);
+        }
+    }
+
+    // Populate available time slots based on selected doctor and date
+    function populateTimeSlots() {
+        const selectedDoctor = doctorSelect.value;
+        const selectedDate = appointmentDate.value;
+        appointmentTime.innerHTML = '<option value="" disabled selected>Select a time slot</option>';
+
+        if (selectedDoctor && selectedDate && doctorAvailability[selectedDoctor] && doctorAvailability[selectedDoctor][selectedDate]) {
+            const times = doctorAvailability[selectedDoctor][selectedDate];
+            times.forEach(time => {
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                appointmentTime.appendChild(option);
+            });
+        }
+    }
+
+    // Display appointments
+    function displayAppointments() {
+        appointmentsList.innerHTML = '';
+        appointments.forEach((appt, index) => {
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.textContent = `${appt.date} ${appt.time} - ${appt.doctor} with ${appt.name} (${appt.email})`;
+            const cancelButton = document.createElement('button');
+            cancelButton.className = 'btn btn-danger btn-sm float-right';
+            cancelButton.textContent = 'Cancel';
+            cancelButton.addEventListener('click', () => cancelAppointment(index));
+            listItem.appendChild(cancelButton);
+            appointmentsList.appendChild(listItem);
+        });
+    }
+
+    // Cancel appointment
+    function cancelAppointment(index) {
+        const appt = appointments[index];
+        const doctor = appt.doctor;
+        const date = appt.date;
+        const time = appt.time;
+
+        // Add the canceled time slot back to the doctor's availability
+        if (!doctorAvailability[doctor][date]) {
+            doctorAvailability[doctor][date] = [];
+        }
+        doctorAvailability[doctor][date].push(time);
+        doctorAvailability[doctor][date].sort();
+
+        // Remove the appointment from the list
+        appointments.splice(index, 1);
+        localStorage.setItem('appointments', JSON.stringify(appointments));
+        populateTimeSlots();
+        displayAppointments();
+    }
+
+    // Handle form submission
+    appointmentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('patientName').value;
+        const email = document.getElementById('patientEmail').value;
+        const doctor = doctorSelect.value;
+        const date = appointmentDate.value;
+        const time = appointmentTime.value;
+
+        if (name && email && doctor && date && time) {
+            // Save appointment
+            const appointment = { name, email, doctor, date, time };
+            appointments.push(appointment);
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+
+            // Remove the booked time slot from the doctor's availability
+            const timeIndex = doctorAvailability[doctor][date].indexOf(time);
+            if (timeIndex > -1) {
+                doctorAvailability[doctor][date].splice(timeIndex, 1);
+            }
+
+            // Reset form and update UI
+            appointmentForm.reset();
+            populateTimeSlots();
+            displayAppointments();
+            alert('Appointment booked successfully!');
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+
+    // Event listeners for doctor and date selection
+    doctorSelect.addEventListener('change', populateTimeSlots);
+    appointmentDate.addEventListener('change', populateTimeSlots);
+
+    // Initialize the application
+    populateDoctorOptions();
+    displayAppointments();
+});
+
+</script>
+</html>

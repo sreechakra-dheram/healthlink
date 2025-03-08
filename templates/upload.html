@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Files List</title>
+    <style>
+        body {
+            color: #ffffff;
+            font-weight: bold;
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            background-color: #d4ffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            color: #000000;
+            margin-left: 20px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: #000000;
+            background-color: #7eb4ff;
+        }
+
+        hr {
+            border: 1px solid #ffffff;
+            margin: 20px 0;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"], select, input[type="submit"] {
+            padding: 10px;
+            border: 1px solid #3d3b3b;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        input[type="submit"] {
+            background-color: #0d47a1;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0a3570;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #000000;
+            font-size: 1rem;
+        }
+
+        a {
+            color: #0d47a1;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #555555;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-left: 10px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            background-color: red;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <h2>Upload, View, and Manage Medical Files</h2>
+
+    <hr>
+
+    <!-- Upload form -->
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file" required><br><br>
+        <select name="category" required>
+            {% for folder in categories %}
+                <option value="{{ folder }}">{{ folder }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Upload">
+    </form>
+
+    <hr>
+
+    <!-- Display list of files -->
+    {% for category, data in files_data.items() %}
+        <h3>{{ category }}</h3>
+        <ul>
+            {% for file, timestamp in data %}
+                <li>
+                    <a href="/download/{{ category }}/{{ file }}">{{ file }}</a> - Uploaded on: {{ timestamp }}
+                    <form method="POST" action="/delete/{{ category }}/{{ file }}" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    {% include 'footer.html' %}
+</body>
+</html>

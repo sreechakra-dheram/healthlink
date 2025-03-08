@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Points Calculator App</title>
+<link rel="stylesheet" href="assesment.css">
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .navbar{
+    height: 40px;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.heading-nav{
+    font-family: cursive;
+    text-align: center;
+}
+.nav-barr{
+    height: 58px;
+    width: 100%;
+    background-color:#133869dd;
+    display: flex;
+    color: rgba(239, 234, 226, 0.87);
+}
+.home{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.home i{
+    font-size: 25px;
+
+}
+.home p{
+    font-family:cursive;
+    font-size: px;
+}
+.doctor-consultation{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.doctor-consultation i{
+    font-size: 25px;
+
+}
+.doctor-consultation p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.awareness{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.awareness i{
+    font-size: 25px;
+
+}
+.awareness p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.chat{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.chat i{
+    font-size: 25px;
+}
+.chat p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.ambulance{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.ambulance i{
+    font-size: 25px;
+}
+.ambulance p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.medical-record{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.medical-record i{
+    font-size: 25px;
+}
+.medical-record p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.accounts{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.accounts i{
+    font-size: 25px;
+}
+.accounts p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.nav-bar{
+    background-color: #024751;
+    color: antiquewhite;
+}
+    body{
+      background-color: rgba(239, 234, 226, 0.87);
+    }
+    #donut-chart-container {
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+    #donut-chart {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .percentage-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 24px;
+        color: #000;
+    }
+    h2{
+    text-align: center;
+    padding: 30px;
+}
+.ques{
+    font-size: 20px;
+    margin-top: 0px;
+}
+.op{
+    font-size: 20px;
+    margin-left: 75px;
+}
+.button{
+    height: 50px;
+    width: 150px;
+    font-size: larger;
+    background-color: #133869dd;
+    margin: 10px;
+    margin-left: 40px;
+    border: solid black;
+    border-radius: 10px;
+    color: white;
+  }
+.btn{
+  height: 270px;
+  width: 270px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin:10px;
+  background-image: url("test.webp");
+  background-size: cover;
+  margin-top: 650px;
+}
+.btn h3{
+  padding-top: 250px;
+}
+.popup{
+  height: 450px;
+  width: 80%;
+  margin: 20px;
+  border: 2px solid black ;
+  margin-left: 100px;
+  border-radius: 10px;
+  background-color: white;
+            top:100px;
+            position: absolute;
+            padding: 0 30px 30px;
+            transition: transform 0.4s, top 0.4s;
+            z-index: 1;
+            overflow: auto;
+        }
+        .popup::-webkit-scrollbar{
+    display:none;
+}
+
+        /* Styling footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 600px;
+        }
+
+        .footer-content {
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .social-links li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .social-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+</style>
+</head>
+<body>
+    <header>
+        <div class="nav-bar" >
+            <h1 class="heading-nav">FITLIFE-FORGE</h1>
+        </div>
+        <div class="nav-barr">
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/upload'">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/appointment.php'">
+              <i class="fa-solid fa-user-doctor"></i>
+              <p>Doctor</p>
+          </div>
+          <div class="home" onclick="window.location.href='vid.html'">
+            <i class="fa-solid fa-video"></i>
+            <p>Awareness</p>
+        </div>
+            <div class="home" onclick="window.location.href='chatbot.html'">
+                <i class="fa-solid fa-message"></i>
+                <p>Chatbot</p>
+            </div>
+            <div class="home" onclick="window.location.href='amb.html'">
+              <i class="fa-solid fa-truck-medical"></i>
+                <p>Ambulance</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/medifiles.php'">
+                <i class="fa-solid fa-hospital-user"></i>
+                <p>Files</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/lab_reports'">
+                <i class="fa-solid fa-chart-simple"></i>
+                <p>Analysis</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/templates/downloadreport.html'">
+                <i class="fa-solid fa-notes-medical"></i>
+                <p>H-log</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/news_view.php'">
+                <i class="fa-solid fa-newspaper"></i>
+                <p>News</p>
+            </div>
+            <div class="home" onclick="window.location.href='home.html'">
+                <i class="fa-solid fa-square-caret-down"></i>
+                <p>Features</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/account_info.php'">
+                <i class="fa-solid fa-user"></i>
+                  <p>Account</p>
+              </div>
+    </header>
+<div id="popup" class="popup">
+  <h2>HEALTH ASSESSMENT</h2>
+<form id="points-form">
+    <div id="question1" class="ques">
+        <pre class="para">Question 1: 
+          Do you eat breakfast before starting your day (e.g., work, school, or other daily activities)? </pre>
+        <label><input type="radio" name="question1" value="1" class="op"> Never </label><br>
+        <label><input type="radio" name="question1" value="2" class="op"> Sometimes</label><br>
+        <label><input type="radio" name="question1" value="3" class="op"> Usually</label><br>
+        <label><input type="radio" name="question1" value="4" class="op"> Always</label><br>
+    </div>
+    <div id="question2" style="display: none;" class="ques">
+      <pre class="para">Question 2: 
+        Do you avoid drinking sugar-sweetened beverages (e.g., regular soda and sweetened coffee, tea, or waters)? </pre>
+      <label><input type="radio" name="question2" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question2" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question2" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question2" value="4" class="op"> Always</label><br>
+    </div>
+    <!-- Repeat similar divs for other questions -->
+    <div  id="question3" style="display: none;"  class="ques">
+      <pre class="para">Question 3: 
+        Do you eat 3 ½ to 4 ½ cups of fruits AND vegetables daily? </pre>
+      <label><input type="radio" name="question3" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question3" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question3" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question3" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question4" style="display: none;"  class="ques">
+      <pre class="para">Question 4: 
+        Do you get at least 7 hours of sleep per night? </pre>
+      <label><input type="radio" name="question4" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question4" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question4" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question4" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question5" style="display: none;"  class="ques">
+      <pre class="para">Question 5: 
+        Do you eat at least 1-2 high fiber foods each day (e.g., whole wheat bread and pasta, oat bran, beans, lentils, peas)? </pre>
+      <label><input type="radio" name="question5" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question5" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question5" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question5" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question6" style="display: none;"  class="ques">
+      <pre class="para">Question 6: 
+        Do you eat and drink fat-free and/or low-fat dairy products? </pre>
+      <label><input type="radio" name="question6" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question6" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question6" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question6" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question7" style="display: none;"  class="ques">
+      <pre class="para">Question 7: 
+        Do you avoid high-calorie salad dressings, gravies, spreads, and/or sauces. ? </pre>
+      <label><input type="radio" name="question7" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question7" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question7" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question7" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question8" style="display: none;"  class="ques">
+      <pre class="para">Question 8: 
+        Do you eat foods that are low in fat and/or saturated fat ? </pre>
+      <label><input type="radio" name="question8" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question8" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question8" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question8" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question9"   style="display: none;" class="ques">
+      <pre class="para">Question 9: 
+        Do you get at least 30 minutes of aerobic and/or muscle-strengthening physical activity at least 5 days per week? </pre>
+      <label><input type="radio" name="question9" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question9" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question9" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question9" value="4" class="op"> Always</label><br>
+    </div>
+    <div  id="question10"  style="display: none;" class="ques">
+      <pre class="para">Question 10: Do you read the Nutrition Facts Label on food products before making a purchase?</pre>
+      <label><input type="radio" name="question10" value="1" class="op"> Never </label><br>
+      <label><input type="radio" name="question10" value="2" class="op"> Sometimes</label><br>
+      <label><input type="radio" name="question10" value="3" class="op"> Usually</label><br>
+      <label><input type="radio" name="question10" value="4" class="op"> Always</label><br>
+    </div>
+  
+    <!-- Repeat similar divs for other questions -->
+    
+    <button id="next-question" type="button" class="button">Next Question</button>
+    <button id="calculate-points" type="submit" style="display: none;" class="button">Calculate Points</button>
+</form>
+
+<div id="total-points"></div>
+<div id="msg"></div>
+<div id="donut-chart-container">
+    <canvas id="donut-chart" width="300" height="300"></canvas>
+    <div class="percentage-label" id="percentage-label"></div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let currentQuestion = 1;
+
+    document.getElementById('next-question').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('question' + currentQuestion).style.display = 'none';
+        currentQuestion++;
+        if (currentQuestion <= 10) {
+            document.getElementById('question' + currentQuestion).style.display = 'block';
+        } else {
+            document.getElementById('calculate-points').style.display = 'inline-block';
+            document.getElementById('next-question').style.display = 'none';
+        }
+    });
+
+    document.getElementById('points-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Check if at least one radio button is selected in each question group
+        for (let i = 1; i <= 10; i++) {
+            const questionValue = getRadioValue('question' + i);
+            if (questionValue === null) {
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+        }
+
+        // Calculate total points and update chart
+        const totalPoints = calculateTotalPoints();
+        updateDonutChart(totalPoints);
+
+        // Display total points and message
+        displayResult(totalPoints);
+    });
+
+    // Helper function to get selected radio button value or null if none selected
+    function getRadioValue(questionName) {
+        const selectedRadio = document.querySelector('input[name="' + questionName + '"]:checked');
+        return selectedRadio ? parseInt(selectedRadio.value) : null;
+    }
+
+    // Helper function to calculate total points
+    function calculateTotalPoints() {
+        let totalPoints = 0;
+        for (let i = 1; i <= 10; i++) {
+            const questionValue = getRadioValue('question' + i);
+            totalPoints += questionValue;
+        }
+        return totalPoints;
+    }
+
+    // Helper function to display result
+    function displayResult(totalPoints) {
+        const totalPointsElement = document.getElementById('total-points');
+        totalPointsElement.textContent = "Total Points: " + totalPoints;
+
+        const msgElement = document.getElementById('msg');
+        if (totalPoints >= 10 && totalPoints <= 16) {
+            msgElement.textContent = "Your health choices could be better, but don’t despair. It’s never too late to take action to improve your health.";
+        } else if (totalPoints >= 17 && totalPoints <= 24) {
+            msgElement.textContent = "You are doing a fair job of managing your health practices and have taken some steps in the right direction.";
+        } else if (totalPoints >= 25 && totalPoints <= 32) {
+            msgElement.textContent = "You are doing a good job and are above average in managing your health.";
+        } else {
+            msgElement.textContent = "You are in excellent shape managing your health. Keep up the good work!";
+        }
+    }
+
+    // Helper function to update donut chart
+    function updateDonutChart(totalPoints) {
+        const correctPoints = totalPoints;
+        const incorrectPoints = 40 - totalPoints;
+
+        const data = {
+            labels: ['Points Earned', ''],
+            datasets: [{
+                data: [correctPoints, incorrectPoints],
+                backgroundColor: ['#7B68EE', '#F3E5AB'],
+                hoverBackgroundColor: ['#7B68EE', '#F3E5AB']
+            }]
+        };
+
+        const options = {
+            responsive: false,
+            cutoutPercentage: 70,
+            animation: {
+                animateRotate: true,
+                animateScale: true
+            },
+            plugins: {
+                datalabels: {
+                    display: false
+                }
+            }
+        };
+
+        const ctx = document.getElementById('donut-chart').getContext('2d');
+
+        if (window.myDonutChart instanceof Chart) {
+            window.myDonutChart.data = data;
+            window.myDonutChart.update();
+        } else {
+            window.myDonutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+                options: options
+            });
+        }
+
+        // Update the percentage label
+        const percentageLabel = document.getElementById('percentage-label');
+        percentageLabel.textContent = Math.min(((correctPoints / 40) * 100).toFixed(0), 100) + '%';
+    }
+});
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+function closepopup(){
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+<footer>
+    <div class="footer-content">
+        <p> FitLife Forge</p>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <!-- Add more social media links as needed -->
+        </ul>
+        <p>Contact Us: <a href="mailto:info@fitlifeforge.com">info@fitlifeforge.com</a></p>
+    </div>
+</footer>
+</body>
+</html>
+

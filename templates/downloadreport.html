@@ -1,0 +1,495 @@
+<!-- Medical History Tracker Form -->
+ <style>
+    /* Page Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.form-container, .table-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #024751;
+color: antiquewhite;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #024751;
+color: antiquewhite;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #024751;
+color: antiquewhite;
+}
+
+/* Footer styling */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/*header styling*/
+header {
+            background-color: #45a049;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header h2 {
+            margin: 5px 0 10px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        nav {
+            background-color: #45a049;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4d4d4;
+        }
+
+ </style>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navbar{
+height: 40px;
+background-color: black;
+color:white;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+margin: 0;
+padding: 0;
+}
+.heading-nav{
+font-family: cursive;
+text-align: center;
+}
+.nav-barr{
+height: 58px;
+width: 100%;
+background-color:#133869dd;
+display: flex;
+color: rgba(239, 234, 226, 0.87);
+}
+.home{
+padding: 10px;
+text-align: center;
+
+}
+
+.home p{
+font-family:cursive;
+}
+.doctor-consultation{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+
+.doctor-consultation p{
+font-family:cursive;
+}
+.awareness{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.awareness i{
+font-size: 25px;
+
+}
+.awareness p{
+font-family:cursive;
+font-size: 15px;
+}
+.chat{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.chat i{
+font-size: 25px;
+}
+.chat p{
+font-family:cursive;
+font-size: 15px;
+}
+.ambulance{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.ambulance i{
+font-size: 25px;
+}
+.ambulance p{
+font-family:cursive;
+font-size: 15px;
+}
+.medical-record{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.medical-record i{
+font-size: 25px;
+}
+.medical-record p{
+font-family:cursive;
+font-size: 15px;
+}
+.accounts{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.accounts i{
+font-size: 25px;
+}
+.accounts p{
+font-family:cursive;
+font-size: 15px;
+}
+.nav-bar{
+background-color: #024751;
+color: antiquewhite;
+margin: 0px;
+padding: 0px;
+}
+body{
+  background-color: rgba(239, 234, 226, 0.87);
+}
+body, header, main, footer {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Styling footer */
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        max-width: 800px; /* Adjust as needed */
+        margin: 0 auto;
+    }
+
+    .footer-content p {
+        margin: 5px 0;
+    }
+
+    .social-links {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .social-links li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .social-links li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .nav-bar {
+background-color: #024751;
+color: antiquewhite;
+padding: 10px; /* Adjust as needed */
+margin: 0; /* Ensure no extra margin */
+}
+
+.nav-barr {
+height: 58px;
+width: 100%;
+background-color: #133869dd;
+display: flex;
+color: rgba(239, 234, 226, 0.87);
+margin: 0;
+padding: 0;
+}
+
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+
+
+    <header>
+        <div class="nav-bar" >
+            <h1 class="heading-nav">HEALTH-LINK</h1>
+        </div>
+        <div class="nav-barr">
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/medifiles.php'">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/appointment.php'">
+              <i class="fa-solid fa-user-doctor"></i>
+              <p>Doctor</p>
+          </div>
+          <div class="home" onclick="window.location.href='../fitlifeforge files/vid.html'">
+            <i class="fa-solid fa-video"></i>
+            <p>Awareness</p>
+        </div>
+            <div class="home" onclick="window.location.href='../fitlifeforge files/chatbot.html'">
+                <i class="fa-solid fa-message"></i>
+                <p>Chatbot</p>
+            </div>
+            <div class="home" onclick="window.location.href='../fitlifeforge files/amb.html'">
+              <i class="fa-solid fa-truck-medical"></i>
+                <p>Ambulance</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/medifiles.php'">
+                <i class="fa-solid fa-hospital-user"></i>
+                <p>Files</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/lab_reports'">
+                <i class="fa-solid fa-chart-simple"></i>
+                <p>Analysis</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/templates/downloadreport.html'">
+                <i class="fa-solid fa-notes-medical"></i>
+                <p>H-log</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/news_view.php'">
+                <i class="fa-solid fa-newspaper"></i>
+                <p>News</p>
+            </div>
+            <div class="home" onclick="window.location.href='../fitlifeforge files/home.html'">
+                <i class="fa-solid fa-square-caret-down"></i>
+                <p>Features</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/account_info.php'">
+                <i class="fa-solid fa-user"></i>
+                  <p>Account</p>
+              </div>
+    </header>
+
+
+
+<div class="form-container">
+    <h1>Medical History Tracker</h1>
+    <label for="date">Date:</label>
+    <input type="date" id="date" required>
+
+    <label for="details">Details:</label>
+    <textarea id="details" rows="3" placeholder="Enter medical history details"></textarea>
+
+    <button onclick="addEntry()">Add Entry</button>
+</div>
+
+<!-- Medical History Table -->
+<div class="table-container">
+    <h2>Medical History</h2>
+    <table id="history-table">
+        <tr>
+            <th>Date</th>
+            <th>Details</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+    <button onclick="downloadPDF()">Download as PDF</button>
+</div>
+</body>
+<!-- Add jsPDF library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", fetchEntries);
+
+    function fetchEntries() {
+        fetch("../php/downloadreport.php")
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById("history-table");
+                table.innerHTML = `<tr><th>Date</th><th>Details</th><th>Actions</th></tr>`;
+
+                data.forEach(entry => {
+                    const row = table.insertRow();
+                    row.innerHTML = `
+                        <td>${entry.date}</td>
+                        <td><span id="details-${entry.id}">${entry.details}</span></td>
+                        <td>
+                            <button onclick="editEntry(${entry.id})">Edit</button>
+                            <button onclick="deleteEntry(${entry.id})">Delete</button>
+                        </td>
+                    `;
+                });
+            });
+    }
+
+    function addEntry() {
+        const date = document.getElementById('date').value;
+        const details = document.getElementById('details').value;
+
+        if (!date || !details) {
+            alert("Please enter both date and details.");
+            return;
+        }
+
+        fetch("../php/downloadreport.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `action=add&date=${date}&details=${encodeURIComponent(details)}`
+        }).then(() => {
+            document.getElementById('date').value = '';
+            document.getElementById('details').value = '';
+            fetchEntries();
+        });
+    }
+
+    function editEntry(id) {
+        const newDetails = prompt("Edit details:", document.getElementById(`details-${id}`).innerText);
+        if (newDetails) {
+            fetch("../php/downloadreport.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `action=edit&id=${id}&details=${encodeURIComponent(newDetails)}`
+            }).then(fetchEntries);
+        }
+    }
+
+    function deleteEntry(id) {
+        if (confirm("Are you sure you want to delete this entry?")) {
+            fetch("../php/downloadreport.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `action=delete&id=${id}`
+            }).then(fetchEntries);
+        }
+    }
+
+    function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        doc.setFontSize(14);
+        doc.text("Medical History", 20, 20);
+        doc.setFontSize(12);
+
+        const table = document.getElementById('history-table');
+        let y = 30;
+
+        for (let i = 1; i < table.rows.length; i++) {
+            const date = table.rows[i].cells[0].innerText;
+            const details = table.rows[i].cells[1].innerText;
+            doc.text(`Date: ${date}`, 20, y);
+            doc.text(`Details: ${details}`, 20, y + 10);
+            y += 20;
+        }
+
+        doc.save("Medical_History.pdf");
+    }
+</script>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Secure MediCloud. All rights reserved.</p>
+    <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+</footer>

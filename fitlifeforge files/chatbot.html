@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <script src="chatbot.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navbar{
+height: 40px;
+background-color: black;
+color:white;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+margin: 0;
+padding: 0;
+}
+.heading-nav{
+font-family: cursive;
+text-align: center;
+}
+.nav-barr{
+height: 58px;
+width: 100%;
+background-color:#133869dd;
+display: flex;
+color: rgba(239, 234, 226, 0.87);
+}
+.home{
+padding: 10px;
+text-align: center;
+
+}
+
+.home p{
+font-family:cursive;
+}
+.doctor-consultation{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+
+.doctor-consultation p{
+font-family:cursive;
+}
+.awareness{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.awareness i{
+font-size: 25px;
+
+}
+.awareness p{
+font-family:cursive;
+font-size: 15px;
+}
+.chat{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.chat i{
+font-size: 25px;
+}
+.chat p{
+font-family:cursive;
+font-size: 15px;
+}
+.ambulance{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.ambulance i{
+font-size: 25px;
+}
+.ambulance p{
+font-family:cursive;
+font-size: 15px;
+}
+.medical-record{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.medical-record i{
+font-size: 25px;
+}
+.medical-record p{
+font-family:cursive;
+font-size: 15px;
+}
+.accounts{
+padding: 10px;
+text-align: center;
+padding-left: 100px;
+}
+.accounts i{
+font-size: 25px;
+}
+.accounts p{
+font-family:cursive;
+font-size: 15px;
+}
+.nav-bar{
+background-color: #024751;
+color: antiquewhite;
+margin: 0px;
+padding: 0px;
+}
+body{
+  background-color: rgba(239, 234, 226, 0.87);
+}
+body, header, main, footer {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Styling footer */
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        max-width: 800px; /* Adjust as needed */
+        margin: 0 auto;
+    }
+
+    .footer-content p {
+        margin: 5px 0;
+    }
+
+    .social-links {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .social-links li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .social-links li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .nav-bar {
+background-color: #024751;
+color: antiquewhite;
+padding: 10px; /* Adjust as needed */
+margin: 0; /* Ensure no extra margin */
+}
+
+.nav-barr {
+height: 58px;
+width: 100%;
+background-color: #133869dd;
+display: flex;
+color: rgba(239, 234, 226, 0.87);
+margin: 0;
+padding: 0;
+}
+
+
+</style>
+<body>
+    <header>
+        <div class="nav-bar" >
+            <h1 class="heading-nav">FITLIFE-FORGE</h1>
+        </div>
+        <div class="nav-barr">
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/upload'">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/appointment.php'">
+              <i class="fa-solid fa-user-doctor"></i>
+              <p>Doctor</p>
+          </div>
+          <div class="home" onclick="window.location.href='vid.html'">
+            <i class="fa-solid fa-video"></i>
+            <p>Awareness</p>
+        </div>
+            <div class="home" onclick="window.location.href='chatbot.html'">
+                <i class="fa-solid fa-message"></i>
+                <p>Chatbot</p>
+            </div>
+            <div class="home" onclick="window.location.href='amb.html'">
+              <i class="fa-solid fa-truck-medical"></i>
+                <p>Ambulance</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/medifiles.php'">
+                <i class="fa-solid fa-hospital-user"></i>
+                <p>Files</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/lab_reports'">
+                <i class="fa-solid fa-chart-simple"></i>
+                <p>Analysis</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/templates/downloadreport.html'">
+                <i class="fa-solid fa-notes-medical"></i>
+                <p>H-log</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/news_view.php'">
+                <i class="fa-solid fa-newspaper"></i>
+                <p>News</p>
+            </div>
+            <div class="home" onclick="window.location.href='home.html'">
+                <i class="fa-solid fa-square-caret-down"></i>
+                <p>Features</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/account_info.php'">
+                <i class="fa-solid fa-user"></i>
+                  <p>Account</p>
+              </div>
+    </header>
+    <div class="chatbot">
+        <header>
+            <h2>Chatbot</h2>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span class="material-symbols-outlined"></span>
+                <p>Hi there <br>How can I help you?</p>
+            </li>
+           
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Enter a message..." required></textarea>
+            <span id="send-btn" class="material-symbols-outlined">send</span>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>FitLife Forge</p>
+            <ul class="social-links">
+                <li><a href="www.facebook.com">Facebook</a></li>
+                <li><a href="www.twitter.com">Twitter</a></li>
+                <li><a href="www.instagram.com">Instagram</a></li>
+                <!-- Add more social media links as needed -->
+            </ul>
+            <p>Contact Us: <a href="mailto:info@fitlifeforge.com">info@fitlifeforge.com</a></p>
+        </div>
+    </footer>
+    <script>
+        let b = document.querySelector(".mode");
+                let cur="light"
+                b.addEventListener("click",(evt)=>{
+                    if(cur==="light"){
+                        cur="dark";
+                        document.body.style.background= "rgb(2, 2, 33)";
+                        document.body.style.color="burlywood";
+                    }
+                    else{
+                        cur="light";
+                        document.body.style.background= "rgba(219, 235, 241, 0.6)";
+                        document.body.style.color="black";
+                    }
+                })
+    </script>
+</body>
+</html>

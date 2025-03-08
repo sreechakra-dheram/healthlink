@@ -1,0 +1,24 @@
+h2{
+    text-align: center;
+    padding: 30px;
+}
+body{
+    background-color:#b8dffaef;
+}
+.ques{
+    font-size: 25px;
+}
+.op{
+    font-size: 30px;
+    margin-left: 75px;
+}
+.button{
+    height: 50px;
+    width: 140px;
+    font-size: larger;
+    background-color: rgb(74, 215, 220);
+    margin: 10px;
+    margin-left: 40px;
+    border: solid black;
+    border-radius: 10px;
+}

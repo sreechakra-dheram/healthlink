@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="nav-bar" >
+            <h1 class="heading-nav">FITLIFE-FORGE</h1>
+        </div>
+        <div class="nav-barr">
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/upload'">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/appointment.php'">
+              <i class="fa-solid fa-user-doctor"></i>
+              <p>Doctor</p>
+          </div>
+          <div class="home" onclick="window.location.href='vid.html'">
+            <i class="fa-solid fa-video"></i>
+            <p>Awareness</p>
+        </div>
+            <div class="home" onclick="window.location.href='chatbot.html'">
+                <i class="fa-solid fa-message"></i>
+                <p>Chatbot</p>
+            </div>
+            <div class="home" onclick="window.location.href='amb.html'">
+              <i class="fa-solid fa-truck-medical"></i>
+                <p>Ambulance</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/medifiles.php'">
+                <i class="fa-solid fa-hospital-user"></i>
+                <p>Files</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://127.0.0.1:5000/lab_reports'">
+                <i class="fa-solid fa-chart-simple"></i>
+                <p>Analysis</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/templates/downloadreport.html'">
+                <i class="fa-solid fa-notes-medical"></i>
+                <p>H-log</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/news_view.php'">
+                <i class="fa-solid fa-newspaper"></i>
+                <p>News</p>
+            </div>
+            <div class="home" onclick="window.location.href='home.html'">
+                <i class="fa-solid fa-square-caret-down"></i>
+                <p>Features</p>
+            </div>
+            <div class="home" onclick="window.location.href='http://localhost/medi_project/php/account_info.php'">
+                <i class="fa-solid fa-user"></i>
+                  <p>Account</p>
+              </div>
+    </header>
+    <div class="test" id="test">
+    <h1>Check the symptoms</h1>
+    <h3>Upload your image here:</h3>
+    <input type="file" id="uploadInput" accept="image/*" capture="camera" class="bt">
+    <button onclick="compareImages()" class="bt">Check disease</button>
+    <p id="result"></p>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>FitLife Forge</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <!-- Add more social media links as needed -->
+            </ul>
+            <p>Contact Us: <a href="mailto:info@fitlifeforge.com">info@fitlifeforge.com</a></p>
+        </div>
+    </footer>
+    </body>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+        /* Styling footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 600px;
+        }
+
+        .footer-content {
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .social-links li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .social-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar{
+    height: 40px;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.heading-nav{
+    font-family: cursive;
+    text-align: center;
+    padding-top: 1%;
+}
+.nav-barr{
+    height: 58px;
+    width: 100%;
+    background-color:#133869dd;
+    display: flex;
+    color: rgba(239, 234, 226, 0.87);
+}
+.home{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.home i{
+    font-size: 25px;
+
+}
+.home p{
+    font-family:cursive;
+    font-size: px;
+}
+.doctor-consultation{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.doctor-consultation i{
+    font-size: 25px;
+
+}
+.doctor-consultation p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.awareness{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.awareness i{
+    font-size: 25px;
+
+}
+.awareness p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.chat{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.chat i{
+    font-size: 25px;
+}
+.chat p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.ambulance{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.ambulance i{
+    font-size: 25px;
+}
+.ambulance p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.medical-record{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.medical-record i{
+    font-size: 25px;
+}
+.medical-record p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.accounts{
+    padding: 10px;
+    text-align: center;
+    padding-left: 100px;
+}
+.accounts i{
+    font-size: 25px;
+}
+.accounts p{
+    font-family:cursive;
+    font-size: 15px;
+}
+.nav-bar{
+    background-color: #024751;
+    color: antiquewhite;
+}
+        .bt{
+            height: 40px;
+        width: 180px;
+        font-size: larger;
+        background-color: #133869dd;
+        margin: 10px;
+        margin-left: 40px;
+        border: solid black;
+        border-radius: 10px;
+        color: white;
+        }
+        .test{
+        height: 450px;
+        width: 80%;
+        margin: 20px;
+        border: 2px solid black ;
+        margin-left: 100px;
+        border-radius: 10px;
+        background-color: rgba(239, 234, 226, 0.87);
+        top:130px;
+        position: absolute;
+        padding: 0 30px 30px;
+        transition: transform 0.4s, top 0.4s;
+        z-index: 1;
+        overflow: auto;
+        margin-right: 20px;
+        
+    }
+    .test::-webkit-scrollbar{
+display:none;
+}
+.navbar{
+    height: 60px;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.panel{
+    height: 40px;
+    background-color: #222f3d;
+    display: flex;
+    align-items: center;
+}
+.panel-op p{
+    color:white;
+    display: inline;
+    margin-left: 200px;
+}
+.panel-all{
+    margin-right: 15px;
+    display: flex;
+    color:white;
+}
+    </style>
+    <script>
+        function compareImages() {
+            var uploadedImage = document.getElementById('uploadInput').files[0];
+
+            if (!uploadedImage) {
+                alert('Please upload an image.');
+                return;
+            }
+
+            var savedImages = [
+                { path: "acne.jpg", name: { heading: "Acne ", description: `It occurs when oil and dead skin cells clog the pores. Pimples under the skin's surface that erupt with a white center are called whiteheads. Pimples exposed to air are called blackheads and look black. Acne usually appears on the face, back, neck, chest, and shoulders. Bacteria (Cutibacterium acnes) and inflammation can play a role in determining when pimples crop up, as can changes in hormones. Some hormones trigger excess oil production, resulting in clogged pores. Adolescents are more prone to getting acne than others.`, treatments: ["Topical medications, like retinoids or benzoyl peroxide", "Diet changes", "Oral medications, like antibiotics or retinoids","Corticosteroid injections for large, painful acne breakouts","Laser or light therapy"] } },
+                { path: "Cellulitis.jpg", name: { heading: "Cellulitis", description: `When bacteria infect skin layers and tissue below the skin, cellulitis is the likely diagnosis. Skin affected by cellulitis may be red, swollen, and tender and feel warm to the touch. You may have a cellulitis infection anywhere on the skin. However, it typically appears on one lower leg in adults and on the face or neck in children.`, treatments: ["Antibiotics", "Pain relievers", "Elevation of affected limb"] } },
+                { path: "ColdSore.jpg", name: { heading: "Cold Sore", description: `A viral infection usually causes cold sores, or fever blisters, which are contagious. Cold sores are tiny, painful, fluid-filled blisters. Type 1 of the herpes simplex virus (HSV-1) causes cold sores, also called oral herpes. Type 2 of the herpes simplex virus (HSV-2) affects the genital region, but HSV-1 can also spread from the mouth to the genitals. Cold sores often appear in clusters on or around the lips. People may experience a tingling sensation in the affected area before a breakout.`, treatments: ["There's no cure for cold sores, and they can go away after a few weeks without treatment. However, antiviral medications can speed recovery."] } },
+                { path: "Dermatitis.jpg", name: { heading: "Dermatitis", description: "Dermatitis refers to skin rashes that are inflamed and usually red and uncomfortable. The inflammation from dermatitis is an immune system response to germs or other foreign substances coming into contact with your body.", treatments: ["Antihistamines for itch relief", "Baths", "Cortisone creams for redness, swelling, and itch","Immunosuppressive medications or injections","Lotions","Moisturizers"] } },
+                { path: "DrySkin.jpg", name: { heading: "Dry Skin", description: `Dry skin is the result of your skin losing a lot of water. A person may experience dry skin because of environmental factors, like low humidity or spending time exposed to high heat. You might notice flaky, rough skin or skin that cracks or itches. Some people have dry skin that's painful, stinging, burning, or peeling.`, treatments: ["Moisturizers are helpful for healing and hydrating your skin. You may also need to treat any underlying conditions, like eczema or psoriasis, that may be causing your dry skin"] } },
+                { path: "Eczema.jpg", name: { heading: "Eczema", description: `Eczema is a dry, itchy skin condition that can occur anywhere. Atopic dermatitis is the most common type due to an overactive immune system and usually occurs in childhood; more specifically, atopic dermatitis is due to a deficiency in a protein called filaggrin that helps skin maintain water content or moisture. Eczema can also cause certain types of blistering. The condition may be chronic, but it's not contagious. People with severe eczema are at a higher risk for food allergies and asthma.`, treatments: ["Antihistamines", "Immunosuppressant medicines that reduce immune system response", "Light therapy","Steroids (used short-term)","Topical medicines","Trigger avoidance, where a person avoids the allergens or irritants that cause flares"] } },
+                { path: "Hives.jpg", name: { heading: "Hives", description: `Hives, also called urticaria, are itchy, raised welts that can be red or skin-colored. About 20% of people experience hives at some point in their lives. Many cases occur due to an allergic reaction.`, treatments: ["Hives are usually temporary, but some people can develop chronic hives. Healthcare providers often recommend antihistamines to block or reduce the body's allergic response and ease itching. In severe or chronic cases, a healthcare provider may temporarily prescribe corticosteroids to address the inflammation and bring relief."] } },
+                { path: "Lupus.jpg", name: { heading: "Lupus", description: `It is an autoimmune condition, meaning the body attacks its own tissues and organs. Lupus can affect many parts of the body, so people with lupus can have various symptoms, which include: Fever, Fatigue, Sensitivity to the sun, Hair loss, Swelling in the legs or around the eyes, Headaches, Abdominal pain. Some forms of lupus only affect the skin. You may notice the following symptoms: A butterfly-shaped rash across the cheeks and nose—this is a classic symptom of lupus, Painless sores in the nose and mouth, A raised, disc-shaped red patches on sun-exposed areas, Round, scaly rashes anywhere on your body`, treatments: ["There's no cure for lupus. However, treatments such as anti-inflammatory drugs, corticosteroids, and immunosuppressants can help manage symptoms and prevent flares"]} },
+                { path: "Psoriasis.jpg", name: { heading: " Psoriasis",description:`Psoriasis is a skin condition related to skin cell development. When a person has psoriasis, their body makes skin cells quicker than normal by creating the cells in a few days instead of weeks. Most people have plaque psoriasis as a result of new cell growth producing piles of skin cells on the skin. The plaques look silvery-white and appear most commonly on the elbows, knees, lower back, and scalp.`, treatments: ["Topical medicines, light therapy, and system-wide medicines (ones that work throughout the body) can help treat psoriasis"] } },
+                { path: "Ringworm.jpg", name: { heading: "Ringworm", description: `Ringworm is a fungal skin infection that can be itchy. Ringworm appears as a round patch with a clear center on many areas of the skin. Despite its name, ringworm is not caused by a worm. Ringworm of the scalp, which is called tinea capitis, can cause scaly, red bald spots. Ringworm of the feet, known as athlete's foot, causes peeling, cracking, and possibly blisters. When ringworm affects the groin, it's called jock itch.`, treatments: ["Ringworm is contagious but treatable with antifungal medicines."] } },
+                { path: "Rosacea.jpg", name: { heading: "Rosacea", description: `Some people have rosacea, which is a skin condition that results in facial redness and sometimes burning or stinging. Other symptoms may also include acne-like skin sores, a red nose, and bloodshot, irritated, watery eyes. There is no known cause for rosacea. However, people who are fair-skinned, aged 30 to 50, and assigned female at birth are more likely to develop rosacea`, treatments: ["Rosacea is incurable but treatable. Potential treatments are trigger avoidance, antibiotics, laser surgery, or nose tissue surgery."] } },
+                { path: "Chickenpox.jpg", name: { heading: "Chickenpox", description: `A painful rash with blisters is a hallmark sign of shingles.32 A shingles rash wraps like a band across one side of the face or body.The virus that causes chickenpox, varicella-zoster virus (VZV), lays dormant in your nerve cells and later reactivates to cause shingles. In other words, shingles only affect people who have previously had chickenpox. The first signs of shingles include skin sensitivity, itching, tingling, or pain. Days later, a rash of tiny fluid-filled blisters develops. Shingles isn't passed from person to person. People with shingles can give chickenpox to others, usually children, if they've never had the illness.`, treatments: ["Healthcare providers usually prescribe antiviral medicines to treat shingles. Those medicines are most effective when started as soon as a rash develops."] } },
+                { path: "SkinCancer.jpg", name: { heading: "Skin Cancer", description: `Nonmelanoma skin cancer frequently affects sun-exposed areas, including the head, face, neck, hands, and arms. There are two types of nonmelanoma skin cancer: basal cell carcinomas and squamous cell carcinomas.Basal cell carcinomas may look like round, flesh-colored growths, a pearl-like bump, or a pink skin patch. Squamous cell carcinomas may form a firm red bump, scaly patch, or a sore.Melanoma (above) is a dangerous type of skin cancer because it can metastasize, or spread. Melanoma may cause dark spots, changes in moles, or a bruise that doesn't heal.`, treatments: ["Treatment can include surgery, radiation, and chemotherapy, depending on the type of skin cancer and its severity."] } },
+                { path: "Vitiligo.jpg", name: { heading: "Vitiligo", description: `There are different types of vitiligo. People with the skin condition develop white or lighter patches of skin, usually on both sides of the body. Some people have localized vitiligo, in which only a few white spots appear, while others can have it on larger swaths of skin. The cause of vitiligo is not fully understood. Still, some research suggests that vitiligo is an autoimmune disease in which the body's immune system attacks pigment-producing cells.`, treatments: ["Healthcare providers may prescribe light therapy and topical creams to ease symptoms."] } },
+                { path: "Warts.jpg", name: { heading: "Warts", description: `Common warts are bumpy skin growths that usually appear on the hands. Foot warts on the soles of the feet, known as plantar warts, tend to be hard and painful when you walk on them.Warts are caused by human papillomaviruses and can be contagious.42 Tiny black dots that look like seeds, which are dried blood from tiny blood vessels, may appear on the surface of warts.`, treatments: ["Warts often go away on their own, particularly in children. A healthcare provider can remove painful or bothersome warts using peeling medicines, acids, or freezing"] } },
+            ];
+
+            var uploadedImageUrl = URL.createObjectURL(uploadedImage);
+            var uploadedImageElement = new Image();
+            uploadedImageElement.src = uploadedImageUrl;
+
+            uploadedImageElement.onload = function() {
+                var resultContent = ''; // Initialize variable to hold result content
+                for (var i = 0; i < savedImages.length; i++) {
+                    // Compare uploaded image path with saved image path
+                    if (savedImages[i].path === uploadedImage.name) {
+                        var matchName = savedImages[i].name;
+                        var heading = matchName.heading;
+                        var description = matchName.description;
+                        var treatments = matchName.treatments;
+                        var treatmentsList = "<ul>";
+                        for (var j = 0; j < treatments.length; j++) {
+                            treatmentsList += "<li>" + treatments[j] + "</li>";
+                        }
+                        treatmentsList += "</ul>";
+                        // Set content for the matched image
+                        resultContent = "<h2>" + heading + "</h2><p>" + description + "</p>" + "<h2>Treatment options:</h2>" + treatmentsList;
+                        break; // Stop loop once a match is found
+                    }
+                }
+                // Display result content
+                document.getElementById('result').innerHTML = resultContent;
+                if (!resultContent) {
+                    document.getElementById('result').textContent = "No match found";
+                }
+            };
+        }
+    </script>
+   </html>
